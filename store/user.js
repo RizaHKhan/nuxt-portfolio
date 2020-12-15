@@ -10,7 +10,7 @@ export const state = () => ({
       name: 'About',
     },
     { name: 'History', bgColor: 'grey darken-4' },
-    { name: 'Projects', bgColor: 'grey darken-4' },
+    { name: 'Projects', bgColor: 'grey darken-3' },
     {
       name: 'Contact',
     },
@@ -34,14 +34,14 @@ export const state = () => ({
     {
       color: 'green',
       year: '2019 September',
-      title: 'Second Upwork Client',
+      title: 'Second Upwork Contract',
       description:
         'Same client needed another website rebuilt. I really expanded my skills here by creating a brand new theme from scratch. Wonderful learning experience',
     },
     {
       color: 'pink',
       year: '2019 Ocotober',
-      title: 'Broadstreet',
+      title: 'Broadstreet Ads',
       description:
         'Joined a ad agency based out of New York, US. An amazing experience that exposed me to many new technologies. Had to come upto speed with Ruby On Rails, VueJS. Also involved with lots of vanilla Javascript while building ad formats. Great experience, will always be indebted to Kenny.',
     },
@@ -50,7 +50,7 @@ export const state = () => ({
       year: '2020 September',
       title: 'Redman Technologies',
       description:
-        'After my Broadstreet contract ended I got a brief contract with a technology company out in Alberta. Great experience working on their VueJS application. Stressful but I go through it with flying colors.',
+        'After my Broadstreet Ads contract ended I got a brief contract with a technology company out in Alberta. Great experience working on their VueJS application. Stressful but I go through it with flying colors.',
     },
     {
       color: 'orange',

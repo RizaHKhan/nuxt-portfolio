@@ -17,7 +17,12 @@
           <NuxtLink
             :to="{ name: 'projects-slug', params: { slug: project.slug } }"
           >
-            <v-card :class="{ grow: hover }" class="mx-auto" max-width="600">
+            <v-card
+              :class="{ grow: hover }"
+              class="mx-auto grey darken-4"
+              max-width="600"
+              flat
+            >
               <v-img
                 :src="require(`~/assets/images/${project.previewImage}`)"
               ></v-img>

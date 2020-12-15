@@ -1,5 +1,6 @@
 ---
 title: Automated Slider
+description: SEO Purposes
 previewImage: generic/js-logo.png
 categories:
   - Javascript

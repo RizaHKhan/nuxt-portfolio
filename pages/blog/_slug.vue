@@ -10,6 +10,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import getSiteMeta from '../../plugins/getSiteMeta'
 
 export default {
   layout: 'article',
@@ -17,7 +18,7 @@ export default {
     const doc = await $content('blog', params.slug).fetch()
 
     const [prev, next] = await $content('blog')
-      .only(['title', 'slug', 'published'])
+      .only(['title', 'slug', 'published', 'description'])
       .where({ published: true })
       .sortBy('createdAt', 'asc')
       .surround(params.slug)
@@ -34,6 +35,15 @@ export default {
     ...mapState({
       doc: (state) => state.blog.blog,
     }),
+    meta() {
+      const metaData = {
+        type: 'blog',
+        title: this.doc.title,
+        description: this.doc.description,
+        url: `${this.$config.baseUrl}/blog/${this.$route.params.slug}`,
+      }
+      return getSiteMeta(metaData)
+    },
   },
 }
 </script>

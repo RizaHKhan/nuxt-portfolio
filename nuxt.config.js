@@ -1,5 +1,8 @@
 import colors from 'vuetify/es5/util/colors'
+import getSiteMeta from './plugins/getSiteMeta'
 require('dotenv').config()
+
+const meta = getSiteMeta()
 
 export default {
   mode: 'universal',
@@ -7,7 +10,10 @@ export default {
   head: {
     title: 'Riza Khan | Web Developer',
     meta: [
+      ...meta,
       { charset: 'utf-8' },
+      { name: 'HandheldFriendly', content: 'True' },
+
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
@@ -15,7 +21,14 @@ export default {
         content: process.env.npm_package_description || '',
       },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        hid: 'canonical',
+        rel: 'canonical',
+        href: process.env.BASE_URL,
+      },
+    ],
   },
   css: ['~/assets/style/main.scss'],
   plugins: ['~/plugins/global.js'],
