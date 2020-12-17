@@ -21,7 +21,7 @@ I actually wrote about it more in my **<a href="/blog/automated-slider">blog</a>
 
 Simple Flex setup, with the image being positioned using `position: absolute`. Quite a basic setup.
 
-<!-- <dynamic-image filename="adformatimgs/better-business.png"></dynamic-image> -->
+<dynamic-image filename="adformatimgs/better-business.png"></dynamic-image>
 
 ### Cutout
 
