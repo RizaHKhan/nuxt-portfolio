@@ -16,12 +16,12 @@ export const state = () => ({
     },
   ],
   socialMedia: [
-    { name: 'earth', link: 'https://www.upwork.com/fl/rizakhan2?viewMode=1' },
+    { name: 'earth', link: process.env.UPWORK },
     {
       name: 'linkedin',
-      link: 'https://www.linkedin.com/in/riza-khan-68499b193/',
+      link: process.env.LINKEDIN,
     },
-    { name: 'github', link: 'https://github.com/RizaHKhan' },
+    { name: 'github', link: process.env.GITHUB },
   ],
   history: [
     {
