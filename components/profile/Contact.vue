@@ -43,31 +43,10 @@
           </v-col>
         </v-row>
       </v-col>
-      <v-col>
-        <v-row class="hidden-lg-and-up">
-          <v-col>
-            <p class="orange--text text-h6">Social Media</p>
-            <SocialMedia />
-          </v-col>
-        </v-row>
-        <v-row class="hidden-lg-and-up">
-          <v-col>
-            <NuxtLink to="/blog"
-              ><v-btn class="orange black--text">Blog</v-btn></NuxtLink
-            >
-          </v-col>
-        </v-row>
-      </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
-import SocialMedia from '@/components/SocialMedia'
-
-export default {
-  components: {
-    SocialMedia,
-  },
-}
+export default {}
 </script>

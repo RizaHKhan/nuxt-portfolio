@@ -2,12 +2,12 @@
   <div>
     <v-list-item two-line>
       <v-list-item-content class="pb-5 text-center">
-        <v-list-item-title class="orange--text display-2"
-          >Riza Khan</v-list-item-title
-        >
-        <v-list-item-subtitle class="text-h6 font-weight-light white--text"
-          >Front-End Developer</v-list-item-subtitle
-        >
+        <v-list-item-title class="orange--text display-2">{{
+          username
+        }}</v-list-item-title>
+        <v-list-item-subtitle class="text-h6 font-weight-light white--text">{{
+          expertOf
+        }}</v-list-item-subtitle>
       </v-list-item-content>
     </v-list-item>
     <v-list-item>
@@ -67,6 +67,8 @@
 <script>
 export default {
   computed: {
+    username: () => process.env.USERNAME,
+    expertOf: () => process.env.EXPERTOF,
     doc() {
       return this.$route.name === 'blog-slug'
         ? this.$store.state.blog.blog

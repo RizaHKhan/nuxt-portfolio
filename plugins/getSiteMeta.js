@@ -1,7 +1,7 @@
-const type = 'Riza Khan Portfolio'
-const url = 'https://khanriza.com'
-const title = 'My Portofolio and Blog Site'
-const description = 'Showcaseing the projects I have been a part of'
+const type = process.env.USERNAME + ' Portfolio'
+const url = process.env.URL
+const title = process.env.TITLE
+const description = process.env.DESCRIPTION
 
 export default (meta) => {
   return [

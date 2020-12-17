@@ -8,7 +8,7 @@ export default {
   mode: 'universal',
   target: 'static',
   head: {
-    title: 'Riza Khan | Web Developer',
+    title: process.env.USERNAME + ' | ' + process.env.EXPERTOF,
     meta: [
       ...meta,
       { charset: 'utf-8' },
