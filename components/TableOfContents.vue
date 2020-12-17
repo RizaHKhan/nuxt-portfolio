@@ -65,10 +65,14 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   computed: {
-    username: () => process.env.USERNAME,
-    expertOf: () => process.env.EXPERTOF,
+    ...mapState({
+      username: (state) => state.user.username,
+      expertOf: (state) => state.user.expertOf,
+    }),
     doc() {
       return this.$route.name === 'blog-slug'
         ? this.$store.state.blog.blog

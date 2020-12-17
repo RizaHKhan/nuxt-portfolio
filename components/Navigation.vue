@@ -67,12 +67,12 @@ export default {
   computed: {
     ...mapState({
       components: (state) => state.user.components,
+      username: (state) => state.user.username,
+      expertOf: (state) => state.user.expertOf,
     }),
     path() {
       return this.$route.path
     },
-    username: () => process.env.USERNAME,
-    expertOf: () => process.env.EXPERTOF,
   },
 }
 </script>

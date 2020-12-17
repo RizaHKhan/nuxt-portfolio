@@ -1,4 +1,6 @@
 export const state = () => ({
+  name: process.env.USERNAME,
+  expertOf: process.env.EXPERTOF,
   projects: [],
   components: [
     {
