@@ -1,9 +1,9 @@
 <template>
   <v-container>
-    <v-row justify="center">
+    <v-row>
       <v-col v-for="(media, index) in socialMedia" :key="index">
-        <a :href="media.link" target="_blank">
-          <v-icon color="white darken-2" class="mx-lg-3 mr-sm-3">
+        <a :href="media.link" target="_blank" class="d-flex">
+          <v-icon color="white darken-2" class="mx-auto">
             mdi-{{ media.name }}
           </v-icon>
         </a>
