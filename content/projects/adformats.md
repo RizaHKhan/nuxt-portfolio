@@ -21,28 +21,28 @@ I actually wrote about it more in my **<a href="/blog/automated-slider">blog</a>
 
 Simple Flex setup, with the image being positioned using `position: absolute`. Quite a basic setup.
 
-<dynamic-image filename="adformats/better-business.png"></dynamic-image>
+<!-- <dynamic-image filename="adformatimgs/better-business.png"></dynamic-image> -->
 
 ### Cutout
 
 You can do the border with a CSS property. And simply `flexbox` the interior. Very simple
 
-<dynamic-image filename="adformats/cutout.png"></dynamic-image>
+<dynamic-image filename="adformatimgs/cutout.png"></dynamic-image>
 
 ### Fund Raiser With Video
 
 Simple layout and the video keeps things interesting.
 
-<dynamic-image filename="adformats/funder-raiser.png"></dynamic-image>
+<dynamic-image filename="adformatimgs/funder-raiser.png"></dynamic-image>
 
 ### Fund Raiser With Image
 
 Love simple advertisements, they really accentuate the issue at hand and don't take attention away unnecessarily.
 
-<dynamic-image filename="adformats/funder-raiser-with-image.png"></dynamic-image>
+<dynamic-image filename="adformatimgs/funder-raiser-with-image.png"></dynamic-image>
 
 ### Social Media
 
 A simple advertisement, very minimalist with lots of empty space. These types are advertisements are my favorite.
 
-<dynamic-image filename="adformats/social-media.png"></dynamic-image>
+<dynamic-image filename="adformatimgs/social-media.png"></dynamic-image>
