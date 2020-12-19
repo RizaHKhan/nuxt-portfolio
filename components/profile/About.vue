@@ -4,24 +4,24 @@
       <v-col>
         <v-row>
           <v-col>
-            <p class="text-h3 orange--text">Who I am</p>
-            <p class="text-body-2 white--text">
+            <p class="display-3 orange--text">Who I am</p>
+            <p class="text-body-1 white--text">
               Front-end developer located in Canada, I've been working as a
               freelancer on Upwork for a couple of years now.
             </p>
-            <p class="text-body-2 white--text">
+            <p class="text-body-1 white--text">
               I cut my teeth creating Wordpress themes but eventually moved into
               Javascript development. When I discovered VueJS I was hooked and
               here we are.
             </p>
-            <p class="text-body-2 white--text">
+            <p class="text-body-1 white--text">
               I also enjoy learning about and then blogging about what I've
               learnt.
             </p>
           </v-col>
         </v-row>
         <v-row>
-          <p class="orange--text text-h3">What I can do:</p>
+          <p class="orange--text display-3">What I can do:</p>
           <v-expansion-panels accordion>
             <v-expansion-panel v-for="(skill, i) in skills" :key="i">
               <v-expansion-panel-header class="text-h6 font-weight-thin">{{
