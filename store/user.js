@@ -56,6 +56,15 @@ export const mutations = {
   addHistory(state, history) {
     state.history = history
   },
+  deleteHistoryItem(state, index) {
+    state.history.splice(index, 1)
+  },
+  editHistoryItem(state, history) {
+    Object.assign(state.history[history.index], history.item)
+  },
+  addHistoryItem(state, history) {
+    state.history.push(history)
+  },
 }
 
 export const getters = {
