@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col>
-        <p class="text-h3 orange--text">Projects</p>
+        <p class="display-3 orange--text">Projects</p>
       </v-col>
     </v-row>
     <v-row>
