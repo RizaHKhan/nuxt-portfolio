@@ -50,9 +50,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-p {
-  position: relative;
-  z-index: 100;
-}
-</style>
+<style lang="scss" scoped></style>
