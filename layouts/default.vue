@@ -28,10 +28,9 @@ export default {
 }
 </script>
 <style lang="scss">
-.v-navigation-drawer__content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+.grey {
+  -webkit-box-shadow: 2px 2px 9px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 2px 9px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 2px 9px -2px rgba(0, 0, 0, 0.75);
 }
 </style>
