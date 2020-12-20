@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export const state = () => ({
   username: process.env.USERNAME,
   expertOf: process.env.EXPERTOF,
@@ -59,11 +61,47 @@ export const mutations = {
   deleteHistoryItem(state, index) {
     state.history.splice(index, 1)
   },
-  editHistoryItem(state, history) {
-    Object.assign(state.history[history.index], history.item)
+  updateHistoryItem(state, payload) {
+    Object.assign(state.history[payload.index], payload.item)
   },
   addHistoryItem(state, history) {
     state.history.push(history)
+  },
+}
+
+export const actions = {
+  async deleteHistoryItem({ commit }, payload) {
+    try {
+      const response = await axios.delete(
+        `${process.env.API}/history/${payload._id}`
+      )
+      if (response.status === 200) {
+        commit('deleteHistoryItem', payload.index)
+      }
+    } catch (e) {
+      console.log(e)
+    }
+  },
+  async updateHistoryItem({ commit }, payload) {
+    try {
+      const response = await axios.put(
+        `${process.env.API}/history/${payload.item._id}`,
+        payload.item
+      )
+      if (response.status === 200) {
+        commit('updateHistoryItem', payload)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  },
+  async addHistoryItem({ commit }, history) {
+    try {
+      const response = await axios.post(`${process.env.API}/history`, history)
+      commit('addHistoryItem', response.data)
+    } catch (error) {
+      console.log(error)
+    }
   },
 }
 

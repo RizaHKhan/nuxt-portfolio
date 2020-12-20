@@ -170,6 +170,7 @@ export default {
       history: 'user/getHistory',
     }),
     formTitle() {
+      // smart, so can simply check here what the title of the popup module should be. In this case, if the item selected already exists (has an index other then -1) use it is an edit form, otherwse it is a new item
       return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
     },
   },
@@ -189,10 +190,15 @@ export default {
     },
     deleteItem(item) {
       this.editedIndex = this.history.indexOf(item)
+      console.log(item)
       this.dialogDelete = true
     },
     deleteItemConfirm() {
-      this.$store.commit('user/deleteHistoryItem', this.editedIndex)
+      const { _id } = this.history[this.editedIndex]
+      this.$store.dispatch('user/deleteHistoryItem', {
+        index: this.editedIndex,
+        _id,
+      })
       this.closeDelete()
     },
     close() {
@@ -211,13 +217,12 @@ export default {
     },
     save() {
       if (this.editedIndex > -1) {
-        this.$store.commit('user/editHistoryItem', {
+        this.$store.dispatch('user/updateHistoryItem', {
           index: this.editedIndex,
           item: this.editedItem,
         })
       } else {
-        console.log(this.editedItem)
-        this.$store.commit('user/addHistoryItem', this.editedItem)
+        this.$store.dispatch('user/addHistoryItem', this.editedItem)
       }
       this.close()
     },
