@@ -117,12 +117,16 @@ import { mapGetters } from 'vuex'
 
 export default {
   async fetch() {
-    if (this.history.length) return
-    try {
-      const response = await axios.get(`${process.env.API}/history`)
-      this.$store.commit('user/addHistory', response.data)
-    } catch (error) {
-      this.errors = true
+    if (this.history.length) {
+      this.$store.commit('admin/toggleLoadingState', false)
+    } else {
+      try {
+        const response = await axios.get(`${process.env.API}/history`)
+        this.$store.commit('user/addHistory', response.data)
+        this.$store.commit('admin/toggleLoadingState', false)
+      } catch (error) {
+        this.errors = true
+      }
     }
   },
   data() {
@@ -190,7 +194,6 @@ export default {
     },
     deleteItem(item) {
       this.editedIndex = this.history.indexOf(item)
-      console.log(item)
       this.dialogDelete = true
     },
     deleteItemConfirm() {
