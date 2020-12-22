@@ -1,5 +1,5 @@
 ---
-title: MongoDB Setup In Express
+title: MongoDB From Router To Response
 previewImage: generic/mongodb-logo.png
 published: true
 categories:
@@ -177,6 +177,7 @@ router.route('/search').get(MoviesCtrl.apiSearchMovies)
 ```
 
 ### Cast Search Query
+
 ```javascript
   /**
    * Finds and returns movies including one or more cast members.
@@ -195,6 +196,7 @@ router.route('/search').get(MoviesCtrl.apiSearchMovies)
 ```
 
 ### Genre Search Query
+
 ```javascript
   static genreSearchQuery(genre) {
     /**
