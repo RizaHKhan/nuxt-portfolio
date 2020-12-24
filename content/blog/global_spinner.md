@@ -118,3 +118,5 @@ Vue.component('LoadingDialog', () => {
 
 We are leaving a lot of details out here. We didn't talk about styling at all. And we didn't touch on transitioning in and out of the component.
 Those are important elements and should be addressed to make the users experience that much better!
+
+And finally, this is not the only way to setup a global component. We could have just as easily used the store (my personal preference).
