@@ -56,7 +56,13 @@ export default {
     '@nuxtjs/component-cache',
   ],
   axios: {},
-  content: {},
+  content: {
+    markdown: {
+      prism: {
+        theme: 'prism-themes/themes/prism-vsc-dark-plus.css',
+      },
+    },
+  },
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
