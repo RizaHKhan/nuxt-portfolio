@@ -2,9 +2,11 @@
   <div>
     <v-list-item two-line>
       <v-list-item-content class="pb-5 text-center">
-        <v-list-item-title class="orange--text display-2">{{
-          username
-        }}</v-list-item-title>
+        <NuxtLink to="/">
+          <v-list-item-title class="orange--text display-2">{{
+            username
+          }}</v-list-item-title>
+        </NuxtLink>
         <v-list-item-subtitle class="text-h6 font-weight-light white--text">{{
           expertOf
         }}</v-list-item-subtitle>
@@ -95,7 +97,7 @@ export default {
   },
   methods: {
     goBack() {
-      this.$router.back()
+      this.$router.push('/blog')
     },
   },
 }
