@@ -7,7 +7,7 @@
       <v-btn
         v-for="(category, index) in categories"
         :key="index"
-        class="ma-1 orange--text"
+        class="ma-1 orange--text blue-grey darken-4"
         small
         :class="selectedCategory === category ? 'primary' : ''"
         @click="selectCategory(category)"

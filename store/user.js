@@ -12,7 +12,7 @@ export const state = () => ({
       name: 'About',
     },
     { name: 'History', bgColor: 'grey darken-4' },
-    { name: 'Projects', bgColor: 'grey darken-3' },
+    { name: 'Projects', bgColor: 'blue-grey darken-4' },
     {
       name: 'Contact',
     },

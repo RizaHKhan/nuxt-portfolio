@@ -9,7 +9,7 @@
         @click="drawer = !drawer"
       ></v-app-bar-nav-icon>
     </v-app-bar>
-    <v-main class="pt-lg-0">
+    <v-main class="pt-lg-0 grey darken-4">
       <v-container class="pa-0" fluid>
         <nuxt />
       </v-container>
