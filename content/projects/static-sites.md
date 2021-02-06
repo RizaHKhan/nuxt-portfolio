@@ -11,6 +11,7 @@ Building a static site, is always fun. You get to enhance your layout skills and
 Below are a couple of examples where I used my skills to build a solid layout using CSS (Grid/Flexbox) and Javascript.
 
 ### Landing Page
+
 Another great project. The subtless of some of the test, the colors is all something I enjoy incorporating. Was a fun project. The arrows disappear in mobile, but their position remains at a certain width based on Javascript.
 
 <dynamic-image filename="static-sites/broadstreet-landing-page.png"></dynamic-image>
@@ -20,7 +21,6 @@ Another great project. The subtless of some of the test, the colors is all somet
 <dynamic-image filename="static-sites/demo-page.png"></dynamic-image>
 
 Another small landing page, with some basic responsive elements. Elements disappear and re-align as the viewport changes.
-
 
 ### Gallery Page
 
@@ -42,6 +42,7 @@ Below is a zoomed out image:
 That is you need to make the above layout. No media queries or anything. Incredible.
 
 ### Self-Demo Page
+
 This page is a mix of PHP and Javascript. Video information is in a PHP array, but the main video changes using Javascript.
 
 Most of the layout is done using Grid.
