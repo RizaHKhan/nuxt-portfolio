@@ -56,6 +56,9 @@ export default {
     '@nuxtjs/component-cache',
   ],
   axios: {},
+  prismic: {
+    endpoint: 'https://khanriza.cdn.prismic.io/api/v2',
+  },
   content: {
     markdown: {
       prism: {
