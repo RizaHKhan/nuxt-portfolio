@@ -39,6 +39,7 @@ export default {
     '@nuxtjs/google-analytics',
     '@nuxtjs/dotenv',
     '@aceforth/nuxt-optimized-images',
+    '@nuxtjs/prismic',
   ],
   optimizedImages: {
     optimizeImages: true,
