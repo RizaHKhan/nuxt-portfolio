@@ -49,7 +49,6 @@ export default {
     const blogs = await $prismic.api.query(
       $prismic.predicates.at('document.type', 'blog')
     )
-
     return { blogs: blogs.results }
   },
 }
