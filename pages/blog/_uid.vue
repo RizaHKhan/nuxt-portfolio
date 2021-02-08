@@ -43,14 +43,10 @@ export default {
     ImageGallery,
   },
   async asyncData({ $prismic, params }) {
-    console.log(params.uid)
     try {
       const blog = await $prismic.api.getByUID('blog', params.uid)
-      console.log('other')
-      console.log(blog)
       return { blog }
     } catch (e) {
-      console.log(e)
       return { e }
     }
   },
