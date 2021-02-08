@@ -1,149 +1,56 @@
 <template>
   <v-container>
-    <v-row>
-      <v-col cols="12" md="6" lg="6">
-        <v-text-field
-          v-model="searchQuery"
-          outlined
-          label="Search Blogs"
-        ></v-text-field>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col cols="12" lg="8">
-        <v-row>
-          <v-col
-            v-for="(blog, index) in filteredBlogs"
-            :key="index"
-            cols="12"
-            md="6"
-          >
-            <NuxtLink :to="{ name: 'blog-slug', params: { slug: blog.slug } }">
-              <v-card outlined>
-                <v-list-item three-line>
-                  <v-list-item-content>
-                    <div class="overline text--disabled">
-                      {{ formatDate(blog.createdAt) }}
-                    </div>
-                    <v-list-item-title class="text-wrap">
-                      {{ blog.title }}
-                    </v-list-item-title>
-                  </v-list-item-content>
-                  <v-list-item-avatar tile size="80">
-                    <v-img
-                      contain
-                      :src="require(`~/assets/images/${blog.previewImage}`)"
-                    ></v-img>
-                  </v-list-item-avatar>
-                </v-list-item>
-
-                <v-card-actions>
-                  <v-btn
-                    v-for="(cat, i) in blog.categories"
-                    :key="i"
-                    outlined
-                    rounded
-                    text
-                    x-small
-                    class="grey"
-                  >
-                    {{ cat }}
-                  </v-btn>
-                </v-card-actions>
-              </v-card>
-            </NuxtLink>
-          </v-col>
-        </v-row>
-      </v-col>
-      <v-col>
-        <Categories
-          :categories="categories"
-          :selected-category="category"
-          @select-category="selectCategory"
+    <v-card v-for="(blog, i) in blogs" :key="i" class="ma-2" outlined>
+      <v-card-title class="font-weight-light">{{
+        blog.data.title[0].text
+      }}</v-card-title>
+      <v-card-subtitle>{{ blog.data.category.slug }}</v-card-subtitle>
+      <div v-for="(slice, x) in blog.data.body" :key="x">
+        <v-card-text v-if="slice.slice_type === 'text'">
+          <prismic-rich-text
+            class="textslice"
+            :field="slice.primary.text"
+          ></prismic-rich-text>
+        </v-card-text>
+        <prismic-image
+          v-if="slice.slice_type === 'image'"
+          height="300"
+          width="300"
+          :field="slice.primary.image"
         />
-      </v-col>
-    </v-row>
+        <v-card-text
+          v-if="slice.slice_type === 'quote'"
+          class="text-h5 font-weight-light"
+        >
+          <blockquote>
+            {{ $prismic.asText(slice.primary.quote) }}
+          </blockquote>
+        </v-card-text>
+        <ImageGallery
+          v-if="slice.slice_type === 'image_gallery'"
+          height="300"
+          width="300"
+          :slice="slice"
+        />
+      </div>
+    </v-card>
+    <pre>{{ blogs }}</pre>
   </v-container>
 </template>
 
 <script>
-import Categories from '@/components/Categories'
+import ImageGallery from '@/components/slices/ImageGallery'
 
 export default {
   components: {
-    Categories,
+    ImageGallery,
   },
-  async asyncData({ $content, params }) {
-    const blogs = await $content('blog', params.slug)
-      .where({ published: true })
-      .only([
-        'title',
-        'createdAt',
-        'slug',
-        'previewImage',
-        'categories',
-        'published',
-      ])
-      .sortBy('updatedAt', 'desc')
-      .fetch()
-
-    const categories = []
-    blogs.forEach((blog) =>
-      blog.categories.forEach((category) => categories.push(category))
+  async asyncData({ $prismic }) {
+    const blogs = await $prismic.api.query(
+      $prismic.predicates.at('document.type', 'blog')
     )
 
-    return {
-      blogs: blogs.filter((blog) => blog.published),
-      categories: [...new Set(categories)],
-    }
-  },
-  data() {
-    return {
-      searchQuery: '',
-      category: '',
-    }
-  },
-  computed: {
-    filteredBlogs() {
-      return this.category
-        ? this.blogs.filter(
-            (blog) =>
-              blog.title
-                .toLowerCase()
-                .includes(this.searchQuery.toLowerCase()) &&
-              blog.categories.includes(this.category)
-          )
-        : this.blogs.filter((blog) =>
-            blog.title.toLowerCase().includes(this.searchQuery.toLowerCase())
-          )
-    },
-  },
-  methods: {
-    selectCategory(category) {
-      this.category = category
-    },
-    formatDate(date) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' }
-      return new Date(date).toLocaleDateString('en', options)
-    },
+    return { blogs: blogs.results }
   },
 }
 </script>
-
-<style scoped>
-a {
-  text-decoration: none;
-}
-
-.v-card__title {
-  word-break: break-word;
-}
-
-.v-card {
-  transition: all 0.5s ease;
-}
-
-.image-container {
-  margin: auto;
-}
-</style>
