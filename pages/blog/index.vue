@@ -19,7 +19,7 @@
             :key="cati"
             x-small
             rounded
-            class="orange black--text"
+            class="green"
           >
             {{ cat }}
           </v-btn>
