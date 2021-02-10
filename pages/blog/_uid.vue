@@ -4,7 +4,6 @@
       <v-card-title class="font-weight-light">{{
         blog.data.title[0].text
       }}</v-card-title>
-      <v-card-subtitle>{{ blog.data.category.slug }}</v-card-subtitle>
       <div v-for="(slice, x) in blog.data.body" :key="x">
         <v-card-text v-if="slice.slice_type === 'text'">
           <prismic-rich-text
