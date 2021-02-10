@@ -1,41 +1,40 @@
 <template>
-  <v-container>
-    <v-card v-for="(blog, i) in blogs" :key="i" class="ma-2" outlined>
-      <v-card-title class="font-weight-light">{{
-        blog.data.title[0].text
-      }}</v-card-title>
-      <v-card-subtitle>{{ blog.data.category.slug }}</v-card-subtitle>
-      <div v-for="(slice, x) in blog.data.body" :key="x">
-        <v-card-text v-if="slice.slice_type === 'text'">
-          <prismic-rich-text
-            class="textslice"
-            :field="slice.primary.text"
-          ></prismic-rich-text>
-        </v-card-text>
-        <prismic-image
-          v-if="slice.slice_type === 'image'"
-          height="300"
-          width="300"
-          :field="slice.primary.image"
-        />
-        <v-card-text
-          v-if="slice.slice_type === 'quote'"
-          class="text-h5 font-weight-light"
-        >
-          <blockquote>
-            {{ $prismic.asText(slice.primary.quote) }}
-          </blockquote>
-        </v-card-text>
-        <ImageGallery
-          v-if="slice.slice_type === 'image_gallery'"
-          height="300"
-          width="300"
-          :slice="slice"
-        />
-      </div>
+  <v-layout wrap>
+    <v-card
+      v-for="(blog, i) in blogs"
+      :key="i"
+      transition="slide-x-transition"
+      class="ma-2"
+      outlined
+      max-width="400px"
+    >
+      <nuxt-link :to="`/blog/${blog.uid}`" class="white--text">
+        <v-img src=""></v-img>
+        <v-card-title class="font-weight-light">{{
+          blog.data.title[0].text
+        }}</v-card-title>
+        <v-card-actions>
+          <v-btn
+            v-for="(cat, cati) in filterCategoryName(blog.data.categories)"
+            :key="cati"
+            x-small
+            rounded
+            class="orange black--text"
+          >
+            {{ cat }}
+          </v-btn>
+        </v-card-actions>
+      </nuxt-link>
     </v-card>
-    <pre>{{ blogs }}</pre>
-  </v-container>
+    <v-row>
+      <v-col cols="6">
+        <pre>{{ categories }}</pre>
+      </v-col>
+      <v-col cols="6">
+        <pre>{{ blogs }}</pre>
+      </v-col>
+    </v-row>
+  </v-layout>
 </template>
 
 <script>
