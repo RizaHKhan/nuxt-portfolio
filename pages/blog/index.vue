@@ -38,17 +38,29 @@
 </template>
 
 <script>
-import ImageGallery from '@/components/slices/ImageGallery'
-
 export default {
-  components: {
-    ImageGallery,
+  async asyncData({ $prismic, redirect }) {
+    try {
+      const { results: blogs } = await $prismic.api.query(
+        $prismic.predicates.at('document.type', 'blog')
+      )
+
+      const { results: categories } = await $prismic.api.query(
+        $prismic.predicates.at('document.type', 'category')
+      )
+
+      return { blogs, categories }
+    } catch (e) {
+      redirect('/')
+    }
   },
-  async asyncData({ $prismic }) {
-    const blogs = await $prismic.api.query(
-      $prismic.predicates.at('document.type', 'blog')
-    )
-    return { blogs: blogs.results }
+  methods: {
+    filterCategoryName(blogCategories) {
+      const catUid = blogCategories.map(({ category }) => category.uid)
+      return this.categories
+        .filter((cat) => catUid.includes(cat.uid))
+        .map((cat) => cat.data.title[0].text)
+    },
   },
 }
 </script>
