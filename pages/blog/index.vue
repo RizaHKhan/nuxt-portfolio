@@ -15,8 +15,8 @@
         }}</v-card-title>
         <v-card-actions>
           <v-btn
-            v-for="(cat, cati) in filterCategoryName(blog.data.categories)"
-            :key="cati"
+            v-for="(cat, catI) in filterCategoryName(blog.data.categories)"
+            :key="catI"
             x-small
             rounded
             class="green"
