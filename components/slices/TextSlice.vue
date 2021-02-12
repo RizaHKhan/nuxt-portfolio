@@ -1,5 +1,5 @@
 <template>
-  <v-card-text>
+  <v-sheet class="ma-4">
     <prismic-rich-text
       v-if="slice.primary.text[0].type !== 'preformatted'"
       :field="slice.primary.text"
@@ -12,7 +12,7 @@
     >
       <prismic-rich-text :field="slice.primary.text"></prismic-rich-text>
     </vue-code-highlight>
-  </v-card-text>
+  </v-sheet>
 </template>
 
 <script>
