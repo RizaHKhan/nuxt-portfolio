@@ -1,9 +1,15 @@
 <template>
-  <v-row>
-    <v-col class="ma-2 d-flex justify-center">
+  <v-layout column class="ma-2">
+    <v-col class="d-flex flex-column justify-center">
       <prismic-image :field="slice.primary.image" class="img" />
     </v-col>
-  </v-row>
+    <v-col>
+      <prismic-rich-text
+        :field="slice.primary.caption"
+        class="caption"
+      ></prismic-rich-text>
+    </v-col>
+  </v-layout>
 </template>
 
 <script>
