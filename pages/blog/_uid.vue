@@ -1,15 +1,13 @@
 <template>
   <v-container>
     <v-card class="ma-2" outlined>
-      <v-card-title class="font-weight-light">{{
+      <v-card-title class="text-h4 font-weight-light">{{
         blog.data.title[0].text
       }}</v-card-title>
+      <v-card-subtitle>{{ blog.data.release_date }}</v-card-subtitle>
       <div v-for="(slice, x) in blog.data.body" :key="x">
         <v-card-text v-if="slice.slice_type === 'text'">
-          <prismic-rich-text
-            class="textslice"
-            :field="slice.primary.text"
-          ></prismic-rich-text>
+          <prismic-rich-text :field="slice.primary.text"></prismic-rich-text>
         </v-card-text>
         <prismic-image
           v-if="slice.slice_type === 'image'"
@@ -29,6 +27,9 @@
           width="300"
           :slice="slice"
         />
+        <v-card v-if="slice.slice_type === 'code'" outlined>
+          <prismic-rich-text :field="slice.primary.code"></prismic-rich-text>
+        </v-card>
       </div>
     </v-card>
   </v-container>
