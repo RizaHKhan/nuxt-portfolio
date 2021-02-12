@@ -1,46 +1,46 @@
 <template>
   <v-container>
     <v-card class="ma-2" outlined>
-      <v-card-title class="text-h4 font-weight-light">{{
+      <v-card-title class="text-h3 font-weight-light orange--text">{{
         blog.data.title[0].text
       }}</v-card-title>
       <v-card-subtitle>{{ blog.data.release_date }}</v-card-subtitle>
-      <div v-for="(slice, x) in blog.data.body" :key="x">
-        <v-card-text v-if="slice.slice_type === 'text'">
-          <prismic-rich-text :field="slice.primary.text"></prismic-rich-text>
-        </v-card-text>
-        <prismic-image
+      <template v-for="(slice, i) in blog.data.body">
+        <TextSlice v-if="slice.slice_type === 'text'" :key="i" :slice="slice" />
+        <ImageSlice
           v-if="slice.slice_type === 'image'"
-          height="300"
-          width="300"
-          :field="slice.primary.image"
+          :key="i"
+          :slice="slice"
         />
-        <v-card-text
+        <QuoteSlice
           v-if="slice.slice_type === 'quote'"
-          class="text-h5 font-weight-light"
-        >
-          <blockquote>{{ $prismic.asText(slice.primary.quote) }}</blockquote>
-        </v-card-text>
-        <ImageGallery
+          :key="i"
+          :slice="slice"
+        />
+        <ImageGallerySlice
           v-if="slice.slice_type === 'image_gallery'"
+          :key="i"
           height="300"
           width="300"
           :slice="slice"
         />
-        <v-card v-if="slice.slice_type === 'code'" outlined>
-          <prismic-rich-text :field="slice.primary.code"></prismic-rich-text>
-        </v-card>
-      </div>
+      </template>
     </v-card>
   </v-container>
 </template>
 
 <script>
-import ImageGallery from '@/components/slices/ImageGallery'
+import ImageGallerySlice from '@/components/slices/ImageGallerySlice'
+import TextSlice from '@/components/slices/TextSlice'
+import ImageSlice from '@/components/slices/ImageSlice'
+import QuoteSlice from '@/components/slices/QuoteSlice'
 
 export default {
   components: {
-    ImageGallery,
+    ImageGallerySlice,
+    TextSlice,
+    ImageSlice,
+    QuoteSlice,
   },
   async asyncData({ $prismic, params }) {
     try {
