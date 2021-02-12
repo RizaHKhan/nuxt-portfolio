@@ -4,7 +4,6 @@
       v-for="(component, index) in components"
       :id="component.name"
       :key="index"
-      style="background-size: cover;"
       :style="{
         backgroundImage: `url(${component.img ? component.img : ''})`,
         height: component.height,

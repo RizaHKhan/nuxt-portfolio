@@ -1,14 +1,26 @@
 <template>
   <v-card-text>
     <prismic-rich-text
+      v-if="slice.primary.text[0].type !== 'preformatted'"
       :field="slice.primary.text"
       :class="getClass(slice.primary.text[0].type)"
     ></prismic-rich-text>
+    <vue-code-highlight
+      v-else
+      language="javascript"
+      :class="getClass(slice.primary.text[0].type)"
+    >
+      <prismic-rich-text :field="slice.primary.text"></prismic-rich-text>
+    </vue-code-highlight>
   </v-card-text>
 </template>
 
 <script>
+import { component as VueCodeHighlight } from 'vue-code-highlight'
+import 'vue-code-highlight/themes/prism-twilight.css'
+
 export default {
+  components: { VueCodeHighlight },
   props: {
     slice: {
       type: Object,
@@ -35,10 +47,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.code {
-  padding: 1rem;
-  border: solid 1px white;
-  border-radius: 10px;
-}
-</style>
+<style lang="scss" scoped></style>
