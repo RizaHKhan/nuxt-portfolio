@@ -1,5 +1,9 @@
 <template>
-  <prismic-image height="300" width="300" :field="slice.primary.image" />
+  <v-row>
+    <v-col class="ma-2 d-flex justify-center">
+      <prismic-image :field="slice.primary.image" class="img" />
+    </v-col>
+  </v-row>
 </template>
 
 <script>
@@ -14,4 +18,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.img {
+  max-width: 100%;
+}
+</style>

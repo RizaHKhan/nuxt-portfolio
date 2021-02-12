@@ -37,14 +37,8 @@ export default {
 
 <style lang="scss" scoped>
 .code {
-  border: solid 1px red;
-}
-
-.heading {
-  border-bottom: 1px white solid;
-}
-
-.paragraph {
-  border: solid 1px blue;
+  padding: 1rem;
+  border: solid 1px white;
+  border-radius: 10px;
 }
 </style>

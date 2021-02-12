@@ -1,13 +1,12 @@
 <template>
   <section class="image-gallery content-section container">
-    <prismic-rich-text :field="slice.primary.name_of_the_gallery" />
     <div class="gallery">
       <div
         v-for="(item, i) in slice.items"
         :key="`slice-item-${i}`"
         class="gallery-item"
       >
-        <prismic-image height="200" width="200" :field="item.gallery_image" />
+        <prismic-image height="400" width="400" :field="item.gallery_image" />
         <prismic-rich-text :field="item.image_captions" />
         <p>
           <prismic-link :field="item.link" class="gallery-link">{{
