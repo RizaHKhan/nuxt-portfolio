@@ -1,9 +1,6 @@
 <template>
   <v-container>
     <v-card class="ma-2" outlined>
-      <v-card-title class="text-h3 font-weight-light orange--text">{{
-        blog.data.title[0].text
-      }}</v-card-title>
       <v-card-subtitle>{{ blog.data.release_date }}</v-card-subtitle>
       <template v-for="(slice, i) in blog.data.body">
         <TextSlice v-if="slice.slice_type === 'text'" :key="i" :slice="slice" />
