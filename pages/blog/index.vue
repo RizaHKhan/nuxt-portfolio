@@ -10,9 +10,12 @@
     >
       <nuxt-link :to="`/blog/${blog.uid}`" class="white--text">
         <v-img src=""></v-img>
-        <v-card-title class="font-weight-light">{{
+        <v-card-title class="text-h4 font-weight-light orange--text">{{
           blog.data.title[0].text
         }}</v-card-title>
+        <v-card-text class="text--secondary">{{
+          blog.data.caption[0].text
+        }}</v-card-text>
         <v-card-actions>
           <v-btn
             v-for="(cat, catI) in filterCategoryName(blog.data.categories)"
@@ -26,14 +29,6 @@
         </v-card-actions>
       </nuxt-link>
     </v-card>
-    <v-row>
-      <v-col cols="6">
-        <pre>{{ categories }}</pre>
-      </v-col>
-      <v-col cols="6">
-        <pre>{{ blogs }}</pre>
-      </v-col>
-    </v-row>
   </v-layout>
 </template>
 
