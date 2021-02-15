@@ -1,7 +1,9 @@
 <template>
   <v-container>
     <v-card class="ma-2" outlined>
-      <v-card-subtitle>{{ blog.data.release_date }}</v-card-subtitle>
+      <v-card-subtitle class="d-flex justify-end">{{
+        blog.data.release_date
+      }}</v-card-subtitle>
       <template v-for="(slice, i) in blog.data.body">
         <TextSlice v-if="slice.slice_type === 'text'" :key="i" :slice="slice" />
         <ImageSlice
