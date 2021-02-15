@@ -9,14 +9,14 @@
       max-width="400px"
     >
       <nuxt-link :to="`/blog/${blog.uid}`" class="white--text">
-        <v-img src=""></v-img>
-        <v-card-title class="text-h4 font-weight-light orange--text">{{
-          blog.data.title[0].text
-        }}</v-card-title>
-        <v-card-text class="text--secondary">{{
+        <v-card-title
+          class="text-h4 font-weight-light orange--text d-flex justify-center"
+          >{{ blog.data.title[0].text }}</v-card-title
+        >
+        <v-card-text class="text--secondary text-center">{{
           blog.data.caption[0].text
         }}</v-card-text>
-        <v-card-actions>
+        <v-card-actions class="d-flex justify-center">
           <v-btn
             v-for="(cat, catI) in filterCategoryName(blog.data.categories)"
             :key="catI"
