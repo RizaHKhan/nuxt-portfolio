@@ -11,7 +11,7 @@ published: true
 
 It is always a good idea to do a quick check on what you are receiving as data, both from the backend and frontend.
 
-For exmaple, say you have received data via a `Axios` call that provides you with a object that contains numerous properties. You want to ensure that there are no malicious functions that could potentially cause issues in the front end.
+For example, say you have received data via a `Axios` call that provides you with a object that contains numerous properties. You want to ensure that there are no malicious functions that could potentially cause issues in the front end.
 
 Therefore, you can do a quick pass through a factory function that will check for a `typeof` on each property and remove anything suspicious.
 
