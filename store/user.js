@@ -59,7 +59,14 @@ export const state = () => ({
       year: '2020 October',
       title: 'Passageways',
       description:
-        'A three month long contract that really exposed me to VueJS at a production level on a daily basis. Fast paced and stressful, this was the best experience of my live. A great experience so far.',
+        'An eight month long contract that really exposed me to VueJS at a production level on a daily basis. Fast paced and stressful, this was the best experience of my live. A great experience!',
+    },
+    {
+      color: 'red',
+      year: '2021 May',
+      title: 'Mass5',
+      description:
+        'A step up, I got a position that involves me managing everything about the project. From the coe, testing and how everything with be structured. This is going to be by far the best opportunity to show myself as a project manager and not just an employee',
     },
   ],
   skills: [
