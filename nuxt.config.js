@@ -56,6 +56,9 @@ export default {
     '@nuxtjs/component-cache',
   ],
   axios: {},
+  server: {
+    host: '0.0.0.0',
+  },
   content: {
     markdown: {
       prism: {
