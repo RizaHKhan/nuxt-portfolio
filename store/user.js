@@ -5,7 +5,7 @@ export const state = () => ({
   components: [
     {
       name: 'Name',
-      img: require('~/assets/images/generic/landing.png'),
+      img: require('~/assets/images/generic/landing.jpg'),
       height: '100vh',
     },
     {
